@@ -38,7 +38,15 @@ The basics of doing data science in the tidyverse, including data visualization,
 
 ## Is this course for me?
 
-THREE_QUESTIONS
+Consider these questions:
+
+1. You have a dataset of prices of diamonds, as well as their size. Could you make a scatterplot of the two variables using ggplot2?
+
+2. You have two datasets, one with information on music genres and age ranges, the other with genres and radio station call names. Can you imagine how you would join them together with a dplyr verb?
+
+3. We want to model the wages of people in the United States, using their height and education as predictors. Then, we would like to plot model predictions for each level of educational attainment. Can you imagine how to do this in R?
+
+If you answered "no" to any/all of those questions... great! This workshop is for you. By the end of the two days, you should be able to accomplish all those tasks. If you answered "yes" to all three questions, you may want to consider taking a different workshop.
 
 ## Prework
 
