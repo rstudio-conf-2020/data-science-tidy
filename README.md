@@ -34,7 +34,7 @@ If you want to transition from coding in base R to the tidyverse, or just jump i
 
 ## Learning objectives
 
-LEARNING_OBJECTIVES
+The basics of doing data science in the tidyverse, including data visualization, data transformation and tidying, understanding special data types, and basic modeling.
 
 ## Is this course for me?
 
