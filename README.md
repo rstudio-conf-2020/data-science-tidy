@@ -25,7 +25,12 @@ can remove these instructions from the README.
 
 ## Overview
 
-ABSTRACT
+This is a two-day, hands-on workshop designed for people who are brand new to R & RStudio and who learn best in person. 
+
+You will learn the basics of R and data science, and practice using the RStudio IDE (integrated development environment). We'll discuss much of the material from the book R for Data Science, including data visualization (ggplot2), data transformation and tidying (dplyr, tidyr), understanding special data types (stringr, forcats, lubridate), and modeling (broom). Throughout the workshop, we'll work in RMarkdown documents, and learn best practices for data computing.
+
+If you want to transition from coding in base R to the tidyverse, or just jump into doing data science in the tidyverse without any prior R experience, this is the workshop for you! We will have a team of TAs on hand to show you the ropes, and help you out when you get stuck.
+
 
 ## Learning objectives
 
