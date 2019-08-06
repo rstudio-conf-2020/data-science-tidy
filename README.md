@@ -1,4 +1,4 @@
-WORKSHOP_TITLE
+Introduction to Data Science in the Tidyverse
 ================
 
 ### rstudio::conf 2020
