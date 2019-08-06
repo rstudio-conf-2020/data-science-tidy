@@ -3,7 +3,7 @@ Introduction to Data Science in the Tidyverse
 
 ### rstudio::conf 2020
 
-by INSTRUCTOR_NAME
+by Amelia McNamara and Hadley Wickham
 
 -----
 
