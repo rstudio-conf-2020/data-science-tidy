@@ -50,10 +50,17 @@ If you answered "no" to any/all of those questions... great! This workshop is fo
 
 ## Prework
 
-\[ADD INFORMATION YOU WANT LEARNERS TO HAVE / STEPS THEY WANT THEM TO
-COMPLETE PRIOR TO THE WORKSHOP. THIS COULD BE A LINK TO A THREAD ON
-RSTUDIO COMMUNITY, PACKAGE INSTALL INSTRUCTIONS, HOW TO GET AN
-RSTUDIO.CLOUD ACCOUNT, ETC.\]
+You'll be using RStudio Cloud, so (all going well) on the day of the workshop all you'll need is **a laptop that can access the internet** (wifi will be available).  
+
+In the unlikely event that there are problems with the conference internet connection, you may want to have a local installation on your computer as a backup. If you'd like, install the following:
+ 
+1. A recent version of R (~3.5.2), which is available for free at [cran.r-project.org](http://www.cran.r-project.org)
+2. A recent version of RStudio IDE (~1.1.463), available for free at [www.rstudio.com/download](http://www.rstudio.com/download)
+3. The set of relevant R packages, which you can install by connecting to the internet, opening RStudio, and running:  
+ 
+    install.packages(c("babynames", "fivethirtyeight", "formatR", "gapminder", "hexbin", "mgcv", "maps", "mapproj", "nycflights13", "rmarkdown", "skimr", "tidyverse", "viridis")) 
+
+Don't forget to bring your power cord!
 
 ## Schedule
 
@@ -67,9 +74,26 @@ RSTUDIO.CLOUD ACCOUNT, ETC.\]
 | 15:00 - 15:30 | *Coffee break*   |
 | 15:30 - 17:00 | Session 4        |
 
-## Instructor
+## Instructors
 
-\[ADD INSTRUCTOR BIO\]
+Amelia McNamara (she/her) is an assistant professor of statistics in the Department of Computer and Information Sciences at the University of St Thomas, in Minnesota. She is an RStudio [Certified Trainor](https://education.rstudio.com/trainers/), as well as a Carpentries [Certified Instructor](https://carpentries.org/instructors/). This is her third year teaching an rstudio::conf workshop. 
+
+-   [amelia.mn](http://www.amelia.mn)
+-   @[AmeliaMN](http://www.twitter.com/AmeliaMN)
+
+Hadley Wickham is the Chief Scientist at RStudio. He is the author of many R packages, including major components of the tidyverse, including ggplot2, dplyr, tidyr, purrr, and readr. He is also the author of the book [R for Data Science](https://r4ds.had.co.nz/) with Garrett Grolemund, on which much of this workshop is based. 
+
+- [github.com/hadley](http://github.com/hadley)
+- @[hadleywickham](https://twitter.com/hadleywickham)
+
+## TAs
+
+We have a fantastic slate of TAs assisting at this workshop! They are:
+
+- Jesse Mostipak
+- Ben Baumer
+- Matthew Flickinger
+- Mike Smith
 
 -----
 
