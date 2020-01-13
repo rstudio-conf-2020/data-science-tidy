@@ -50,12 +50,12 @@ If you answered "no" to any/all of those questions... great! This workshop is fo
 
 ## Prework
 
-You'll be using RStudio Cloud, so (all going well) on the day of the workshop all you'll need is **a laptop that can access the internet** (wifi will be available).  
+You'll be using [RStudio Cloud](https://rstudio.cloud/), a cloud-based version of R and RStudio available through your web browser.  So (all going well) on the day of the workshop all you'll need is **a laptop that can access the internet** (wifi will be available).  Please do [sign up for an account on RStudio Cloud](https://client.login.rstudio.cloud/oauth/register?redirect=https%3A%2F%2Fclient.login.rstudio.cloud%2Foauth%2Flogin%3Fshow_auth%3D0%26show_login%3D1%26show_setup%3D1) before the workshop. You can make an account directly on RStudio Cloud, or use single-sign-on with a service like GitHub or Google. 
 
 In the unlikely event that there are problems with the conference internet connection, you may want to have a local installation on your computer as a backup. If you'd like, install the following:
  
-1. A recent version of R (~3.5.2), which is available for free at [cran.r-project.org](http://www.cran.r-project.org)
-2. A recent version of RStudio IDE (~1.1.463), available for free at [www.rstudio.com/download](http://www.rstudio.com/download)
+1. A recent version of R (~3.6), which is available for free at [cran.r-project.org](http://www.cran.r-project.org)
+2. A recent version of RStudio IDE (~1.2.5033), available for free at [www.rstudio.com/download](http://www.rstudio.com/download)
 3. The set of relevant R packages, which you can install by connecting to the internet, opening RStudio, and running:  
  
     install.packages(c("babynames", "fivethirtyeight", "formatR", "gapminder", "hexbin", "mgcv", "maps", "mapproj", "nycflights13", "rmarkdown", "skimr", "tidyverse", "viridis")) 
@@ -81,7 +81,7 @@ Amelia McNamara (she/her) is an assistant professor of statistics in the Departm
 -   [amelia.mn](http://www.amelia.mn)
 -   @[AmeliaMN](http://www.twitter.com/AmeliaMN)
 
-Hadley Wickham is the Chief Scientist at RStudio. He is the author of many R packages, including major components of the tidyverse, including ggplot2, dplyr, tidyr, purrr, and readr. He is also the author of the book [R for Data Science](https://r4ds.had.co.nz/) with Garrett Grolemund, on which much of this workshop is based. 
+Hadley Wickham (he/him) is the Chief Scientist at RStudio. He is the author of many R packages, including major components of the tidyverse, including ggplot2, dplyr, tidyr, purrr, and readr. He is also the author of the book [R for Data Science](https://r4ds.had.co.nz/) with Garrett Grolemund, on which much of this workshop is based. 
 
 - [github.com/hadley](http://github.com/hadley)
 - @[hadleywickham](https://twitter.com/hadleywickham)
