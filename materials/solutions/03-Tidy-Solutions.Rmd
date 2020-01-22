@@ -7,9 +7,6 @@ output:
     df_print: paged
 ---
 
-<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
-
-
 ```{r setup}
 library(tidyverse)
 library(babynames)
@@ -75,6 +72,8 @@ Is `bp_systolic` tidy?
 bp_systolic2 
 ```
 
+Yes.
+
 ## Your Turn 2
 
 Using `bp_systolic2` with `group_by()`, and `summarise()`:
@@ -111,13 +110,12 @@ On a sheet of paper, draw how the cases data set would look if it had the same v
 
 ## Your Turn 4
 
-Use `gather()` to reorganize `table4a` into three columns: **country**, **year**, and **cases**.
+Use `pivot_longer()` to reorganize `table4a` into three columns: **country**, **year**, and **cases**.
 
 ```{r}
 table4a %>%
-  gather(key = "year", 
-    value = "cases", -country) %>%
-  arrange(country)
+ pivot_longer(-country, names_to = "year", 
+    values_to = "cases") 
 ```
 
 ## Your Turn 5
@@ -136,11 +134,11 @@ On a sheet of paper, draw how `pollution` would look if it had the same values g
 
 ## Your Turn 6
 
-Use `spread()` to reorganize `table2` into four columns: **country**, **year**, **cases**, and **population**.
+Use `pivot_wider()` to reorganize `table2` into four columns: **country**, **year**, **cases**, and **population**.
 
 ```{r}
 table2 %>%
-  spread(key = type, value = count)
+  pivot_wider(names_from = type, values_from = count)
 ```
 
 ***
@@ -156,3 +154,5 @@ A data set is tidy if and only if:
 3. Every value is in its own cell (which follows from the above)
 
 What is a variable and an observation may depend on your immediate goal.
+
+<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->

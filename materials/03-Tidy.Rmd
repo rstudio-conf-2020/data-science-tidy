@@ -1,15 +1,12 @@
 ---
 title: "Tidy Data"
-output: html_notebook
+output: html_document
 editor_options: 
   chunk_output_type: inline
 ---
 
-<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
-
 ```{r setup}
 library(tidyverse)
-library(babynames)
 
 # Toy data
 cases <- tribble(
@@ -95,7 +92,7 @@ On a sheet of paper, draw how the cases data set would look if it had the same v
 
 ## Your Turn 4
 
-Use `gather()` to reorganize `table4a` into three columns: **country**, **year**, and **cases**.
+Use `pivot_longer()` to reorganize `table4a` into three columns: **country**, **year**, and **cases**.
 
 ```{r}
 table4a 
@@ -107,7 +104,7 @@ On a sheet of paper, draw how this data set would look if it had the same values
 
 ## Your Turn 6
 
-Use `spread()` to reorganize `table2` into four columns: **country**, **year**, **cases**, and **population**.
+Use `pivot_wider()` to reorganize `table2` into four columns: **country**, **year**, **cases**, and **population**.
 
 ```{r}
 table2 
@@ -126,3 +123,5 @@ A data set is tidy if and only if:
 3. Every value is in its own cell (which follows from the above)
 
 What is a variable and an observation may depend on your immediate goal.
+
+<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
