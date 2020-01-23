@@ -1,11 +1,11 @@
 ---
 title: "Visualization - solutions"
-output: html_notebook
-editor_options: 
-  chunk_output_type: inline
+output:
+  github_document: 
+    df_print: tibble
+  html_document:
+    df_print: paged
 ---
-
-<!-- This file by Amelia McNamara is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
 
 ## Setup
 
@@ -139,6 +139,7 @@ ggplot(data = bechdel, mapping = aes(x = budget, y = domgross)) +
 ```
 
 ```{r}
+library(dplyr)
 ggplot(data = bechdel, mapping = aes(x = budget, y = domgross)) +
   geom_point(mapping = aes(color = clean_test)) +
   geom_smooth(data = filter(bechdel, clean_test == "ok"))
@@ -170,3 +171,5 @@ You can use this code template to make thousands of graphs with **ggplot2**.
 ggplot(data = <DATA>) +
   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 ```
+
+<!-- This file by Amelia McNamara is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
