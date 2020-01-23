@@ -85,6 +85,7 @@ We have a fantastic slate of TAs assisting at this workshop! They are:
 - Ben Baumer
 - Matthew Flickinger
 - Mike Smith
+- David Keyes
 
 -----
 
