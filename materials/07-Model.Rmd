@@ -1,11 +1,7 @@
 ---
 title: "Model"
-output: html_notebook
-editor_options: 
-  chunk_output_type: inline
+output: html_document
 ---
-
-<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
 
 ```{r setup, message=FALSE}
 library(tidyverse)
@@ -97,4 +93,6 @@ mod_ehs <- wages %>% lm(log(income) ~ education + height + sex, data = .)
 * Use `add_predictions()` or `gather_predictions()` or `spread_predictions()` from the **modelr** package to visualize predictions.
 
 * Use `add_residuals()` or `gather_residuals()` or `spread_residuals()` from the **modelr** package to visualize residuals.
+
+<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
 

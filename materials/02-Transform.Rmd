@@ -1,11 +1,7 @@
 ---
 title: "Transform Data"
-output: html_notebook
-editor_options: 
-  chunk_output_type: inline
+output: html_document
 ---
-
-<!-- This file by Amelia McNamara is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
 
 ```{r setup}
 library(dplyr)
@@ -19,14 +15,14 @@ library(skimr)
 ```{r}
 babynames
 skim(babynames)
-skim_with(integer = list(p25 = NULL, p75=NULL))
+my_skim <- skim_with(numeric = sfl(p25 = NULL, p75=NULL))
 ```
 
 
 ## Your Turn 1
-Run the skim_with() command, and then try skimming babynames again to see how the output is different
+Run the skim_with() command, and then try skimming `babynames` again to see how the output is different
 ```{r}
-
+my_skim(babynames)
 ```
 
 ## Select
@@ -400,4 +396,4 @@ airports %>% left_join(flights, by = c("faa" = "dest"))
 * Use `semi_join()` or `anti_join()` to filter datasets against each other
 
 
-
+<!-- This file by Amelia McNamara is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->

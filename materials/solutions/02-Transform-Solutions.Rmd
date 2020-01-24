@@ -1,14 +1,14 @@
 ---
 title: "Transform Data - solutions"
-output: html_notebook
-editor_options: 
-  chunk_output_type: inline
+output:
+  github_document: 
+    df_print: tibble
+  html_document:
+    df_print: paged
 ---
 
-<!-- This file by Amelia McNamara is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
-
 ```{r setup}
-library(dplyr)
+library(tidyverse)
 library(babynames)
 library(nycflights13)
 library(skimr)
@@ -19,7 +19,8 @@ library(skimr)
 ```{r}
 babynames
 skim(babynames)
-skim_with(integer = list(p25 = NULL, p75=NULL))
+my_skim <- skim_with(numeric = sfl(p25 = NULL, p75=NULL))
+my_skim(babynames)
 ```
 
 
@@ -355,3 +356,5 @@ airports %>%
 
 * Use `left_join()`, `right_join()`, `full_join()`, or `inner_join()` to join datasets
 * Use `semi_join()` or `anti_join()` to filter datasets against each other
+
+<!-- This file by Amelia McNamara is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
