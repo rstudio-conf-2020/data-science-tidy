@@ -1,10 +1,10 @@
 ---
 title: "Model (solutions)"
 output:
-  html_document:
-    df_print: paged
   github_document: 
     df_print: tibble  
+  html_document:
+    df_print: paged
 ---
 
 ```{r setup, message=FALSE}
