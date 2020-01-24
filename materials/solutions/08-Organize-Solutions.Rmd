@@ -1,13 +1,13 @@
 ---
 title: "Organize with List Columns"
 output:
-  html_document:
-    df_print: paged
   github_document: 
     df_print: tibble  
+  html_document:
+    df_print: paged
 ---
 
-<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
+
 
 ```{r setup}
 library(tidyverse)
@@ -141,3 +141,4 @@ charlotte_gapminder %>%
 
 # Take away
 
+<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
