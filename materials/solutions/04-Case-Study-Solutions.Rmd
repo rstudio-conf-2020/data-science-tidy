@@ -1,13 +1,11 @@
 ---
 title: 'Case Study: Friday the 13th Effect (Solution)'
 output:
-  html_document:
-    df_print: paged
   github_document: 
     df_print: tibble  
+  html_document:
+    df_print: paged
 ---
-
-<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License. -->
 
 ```{r setup}
 library(fivethirtyeight)
@@ -18,7 +16,7 @@ library(tidyverse)
 
 Reproduce this figure from fivethirtyeight's article [*Some People Are Too Superstitious To Have A Baby On Friday The 13th*](https://fivethirtyeight.com/features/some-people-are-too-superstitious-to-have-a-baby-on-friday-the-13th/):
 
-![](resources/bialik-fridaythe13th-2.png)
+![](../resources/bialik-fridaythe13th-2.png)
 
 ## Data
 
@@ -67,8 +65,7 @@ Use the figure as a guide for what the data should like to make the final plot. 
      
 ---------------------------     
 
-There is more than one way to get there, but we
-ll roughly follow this strategy:
+There is more than one way to get there, but we'll roughly follow this strategy:
 
 * Get just the data for the 6th, 13th, and 20th
 * Calculate variable of interest:
@@ -125,7 +122,7 @@ Tidy the filtered data to have the days in columns.
 US_births_1994_2003 %>%
   select(-date) %>% 
   filter(date_of_month %in% c(6, 13, 20)) %>%
-  spread(date_of_month, births)
+  pivot_wider(names_from = date_of_month, values_from = births)
 ```
 
 ## Your Turn 5
@@ -139,7 +136,7 @@ Now use `mutate()` to add columns for:
 US_births_1994_2003 %>%
   select(-date) %>% 
   filter(date_of_month %in% c(6, 13, 20)) %>%
-  spread(date_of_month, births) %>%
+  pivot_wider(names_from = date_of_month, values_from = births) %>%
   mutate(
     avg_6_20 = (`6` + `20`)/2,
     diff_13 = (`13` - avg_6_20) / avg_6_20 * 100
@@ -155,7 +152,7 @@ To make it a little easier let's assign our current data to a variable
 births_diff_13 <- US_births_1994_2003 %>%
   select(-date) %>% 
   filter(date_of_month %in% c(6, 13, 20)) %>%
-  spread(date_of_month, births) %>%
+  pivot_wider(names_from = date_of_month, values_from = births) %>%
   mutate(
     avg_6_20 = (`6` + `20`)/2,
     diff_13 = (`13` - avg_6_20) / avg_6_20 * 100
@@ -187,7 +184,7 @@ Then, recreate the fivethirtyeight plot.
 US_births_1994_2003 %>%
   select(-date) %>% 
   filter(date_of_month %in% c(6, 13, 20)) %>%
-  spread(date_of_month, births) %>%
+  pivot_wider(names_from = date_of_month, values_from = births) %>%
   mutate(
     avg_6_20 = (`6` + `20`)/2,
     diff_13 = (`13` - avg_6_20) / avg_6_20 * 100
@@ -209,3 +206,5 @@ US_births_1994_2003 %>%
 ## Takeaways
 
 The power of the tidyverse comes from being able to easily combine functions that do simple things well.  
+
+<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License. -->

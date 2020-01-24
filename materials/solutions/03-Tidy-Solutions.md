@@ -1,20 +1,18 @@
 Tidy – Solutions
 ================
 
-<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
-
 ``` r
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ───────────────────────────────── tidyverse 1.2.1 ──
+    ## ── Attaching packages ────────────────────────── tidyverse 1.2.1 ──
 
     ## ✔ ggplot2 3.2.0     ✔ purrr   0.3.2
     ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
     ## ✔ tidyr   1.0.0     ✔ stringr 1.4.0
     ## ✔ readr   1.1.1     ✔ forcats 0.4.0
 
-    ## ── Conflicts ──────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ───────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
 
@@ -234,4 +232,7 @@ A data set is tidy if and only if:
 2.  Every observation is in its own row
 3.  Every value is in its own cell (which follows from the above)
 
-What is a variable and an observation may depend on your immediate goal.
+What is a variable and an observation may depend on your immediate
+goal.
+
+<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
