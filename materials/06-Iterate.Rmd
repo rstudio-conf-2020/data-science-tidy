@@ -3,8 +3,6 @@ title: "Iteration"
 output: html_document
 ---
 
-<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
-
 ```{r setup}
 library(tidyverse)
 
@@ -141,3 +139,5 @@ To write a function,
 3. Add the name of the real object as the function argument 
 
 This sequence will help prevent bugs in your code (and reduce the time you spend correcting bugs). 
+
+<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License, adapted from the orignal work at https://github.com/rstudio/master-the-tidyverse by RStudio. -->
