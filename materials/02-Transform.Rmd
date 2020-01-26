@@ -15,12 +15,12 @@ library(skimr)
 ```{r}
 babynames
 skim(babynames)
+View(babynames)
 my_skim <- skim_with(numeric = sfl(p25 = NULL, p75=NULL))
 ```
 
-
 ## Your Turn 1
-Run the skim_with() command, and then try skimming `babynames` again to see how the output is different
+Run the skim_with() command, and then try skimming `babynames` again to see how the output is different. Look at the examples and try some other variations.
 ```{r}
 my_skim(babynames)
 ```
@@ -171,12 +171,12 @@ Extract the rows where `name == "Khaleesi"`. Then use `summarise()` and a summar
 # Toy dataset to use
 pollution <- tribble(
        ~city,   ~size, ~amount, 
-  "New York", "large",      23,
-  "New York", "small",      14,
-    "London", "large",      22,
-    "London", "small",      16,
+  "New York", "large",       23,
+  "New York", "small",       14,
+    "London", "large",       22,
+    "London", "small",       16,
    "Beijing", "large",      121,
-   "Beijing", "small",      56
+   "Beijing", "small",       56
 )
 ```
 
@@ -304,16 +304,15 @@ band %>% left_join(instrument2, by = c("name" = "artist"))
 
 ## Your Turn 16
 
-How many airports in `airports` are serviced by flights originating in New York (i.e. flights in our dataset?) Notice that the column to join on is named `faa` in the **airports** data set and `dest` in the **flights** data set.
-
+Find the average delay by destination airport. Find the average delay by _origin_ airport.
 
 ```{r}
 __________ %>%
- _________(_________, by = ___________) %>%
-  distinct(faa)
+  drop_na(arr_delay) %>%
+  group_by(__________) %>% 
+  summarise(delay = mean(arr_delay)) %>%
+  _________(_________, by = ___________)
 ```
-
-
 
 ***
 
