@@ -15,7 +15,7 @@ library(skimr)
 ```{r}
 babynames
 skim(babynames)
-View(babynames)
+# View(babynames) # can't Knit a document with View in it
 my_skim <- skim_with(numeric = sfl(p25 = NULL, p75=NULL))
 ```
 
@@ -25,13 +25,49 @@ Run the skim_with() command, and then try skimming `babynames` again to see how 
 my_skim(babynames)
 ```
 
+## Data types in R
+
+## Your Turn 2
+
+How many dimensions does a vector have?
+
+## Your Turn 3
+
+What happens in your Environment when you run this code?
+In your RMarkdown document?
+
+```{r}
+vec <- c(1, 2, 3, 10, 100)
+vec
+```
+
+## Your Turn 4
+
+Which of these are numbers? What are the others? How can you tell?
+1 "1" "one"
+
+## Your Turn 5
+Make a vector that contains the number 1, the letter R, and the logical TRUE.
+
+What class of data is the vector?
+
+
+```{r}
+
+```
+
+
+## Your Turn 6
+
+Another way to see the class of an object is in the Environment pane. Does the Environment agree with what you found using class()?
+
 ## Select
 
 ```{r}
 select(babynames, name, prop)
 ```
 
-## Your Turn 2
+## Your Turn 7
 
 Alter the code to select just the `n` column:
 
@@ -57,7 +93,7 @@ select(babynames, ends_with("n"))
 filter(babynames, name == "Amelia")
 ```
 
-## Your Turn 3
+## Your Turn 8
 
 Show:
 
@@ -70,7 +106,7 @@ filter(babynames, is.na(n))
 
 ```
 
-## Your Turn 4
+## Your Turn 9
 
 Use Boolean operators to alter the code below to return only the rows that contain:
 
@@ -88,7 +124,7 @@ filter(babynames, name == "Sea" | name == "Anemone")
 arrange(babynames, n)
 ```
 
-## Your Turn 5
+## Your Turn 10
 
 Arrange babynames by `n`. Add `prop` as a second (tie breaking) variable to arrange on. Can you tell what the smallest value of `n` is?
 
@@ -102,7 +138,7 @@ Arrange babynames by `n`. Add `prop` as a second (tie breaking) variable to arra
 arrange(babynames, desc(n))
 ```
 
-## Your Turn 6
+## Your Turn 11
 
 Use `desc()` to find the names with the highest prop.
 Then, use `desc()` to find the names with the highest n.
@@ -120,7 +156,7 @@ babynames %>%
   arrange(desc(n))
 ```
 
-## Your Turn 7
+## Your Turn 12
 
 Use `%>%` to write a sequence of functions that: 
 
@@ -132,7 +168,7 @@ Use `%>%` to write a sequence of functions that:
 
 ```
 
-## Your Turn 8
+## Your Turn 13
 
 1. Trim `babynames` to just the rows that contain your `name` and your `sex`  
 2. Trim the result to just the columns that will appear in your graph (not strictly necessary, but useful practice)  
@@ -142,7 +178,7 @@ Use `%>%` to write a sequence of functions that:
 
 ```
 
-## Your Turn 9
+## Your Turn 14
 
 Use summarise() to compute three statistics about the data:
 
@@ -154,7 +190,7 @@ Use summarise() to compute three statistics about the data:
 
 ```
 
-## Your Turn 10
+## Your Turn 15
 
 Extract the rows where `name == "Khaleesi"`. Then use `summarise()` and a summary functions to find:
 
@@ -194,7 +230,7 @@ pollution %>%
 ```
 
 
-## Your Turn 11
+## Your Turn 16
 
 Use `group_by()`, `summarise()`, and `arrange()` to display the ten most popular baby names. Compute popularity as the total number of children of a single gender given a name.
 
@@ -202,7 +238,7 @@ Use `group_by()`, `summarise()`, and `arrange()` to display the ten most popular
 
 ```
 
-## Your Turn 12
+## Your Turn 17
 
 Use grouping to calculate and then plot the number of children born each year over time.
 
@@ -226,7 +262,7 @@ babynames %>%
   mutate(percent = round(prop*100, 2))
 ```
 
-## Your Turn 13
+## Your Turn 18
 
 Use `min_rank()` and `mutate()` to rank each row in `babynames` from largest `n` to lowest `n`.
 
@@ -234,13 +270,19 @@ Use `min_rank()` and `mutate()` to rank each row in `babynames` from largest `n`
 
 ```
 
-## Your Turn 14
+## Your Turn 19
 
 Compute each name's rank _within its year and sex_. 
 Then compute the median rank _for each combination of name and sex_, and arrange the results from highest median rank to lowest.
 
 ```{r}
 
+```
+
+## Joining data
+
+```{r}
+library(nycflights13)
 ```
 
 ## Flights data
@@ -276,24 +318,32 @@ instrument2 <- tribble(
 
 ## Mutating joins
 
+
+## Types of joins
+
 ```{r}
 band %>% left_join(instrument, by = "name")
+band %>% right_join(instrument, by = "name")
+band %>% full_join(instrument, by = "name")
+band %>% inner_join(instrument, by = "name")
 ```
 
-## Your Turn 15
 
-Which airlines had the largest arrival delays? Complete the code below.
+## Your Turn 20
+
+Which airlines had the largest arrival delays?  Work in groups to complete the code below.
 
 1. Join `airlines` to `flights`
 2. Compute and order the average arrival delays by airline. Display full names, no codes.
 
+
 ```{r}
 flights %>%
   drop_na(arr_delay) %>%
-                      %>%
-  group_by(         ) %>%
-                      %>%
-  arrange(       ) 
+     #something!     %>%
+  group_by(   #something!  ) %>%
+     #something!      %>%
+  arrange(  #something! )       
 ```
 
 ## Different names
@@ -302,7 +352,11 @@ flights %>%
 band %>% left_join(instrument2, by = c("name" = "artist"))
 ```
 
-## Your Turn 16
+```{r}
+airports %>% left_join(flights, by = c("faa" = "dest"))
+```
+
+## Your Turn 21
 
 Find the average delay by destination airport. Find the average delay by _origin_ airport.
 
@@ -314,70 +368,24 @@ __________ %>%
   _________(_________, by = ___________)
 ```
 
+## Filtering joins
+
+
+```{r}
+band %>% semi_join(instrument, by = "name")
+band %>% anti_join(instrument, by = "name")
+```
+
+## Your Turn 22
+
+How many airports in airports are serviced by flights originating in New York (i.e. flights in our dataset?) 
+Notice that the column to join on is named faa in the airports dataset and dest in the flights dataset.
+
+```{r}
+
+```
+
 ***
-
-# Take aways
-
-* Extract variables with `select()`  
-* Extract cases with `filter()`  
-* Arrange cases, with `arrange()`  
-
-* Make tables of summaries with `summarise()`  
-* Make new variables, with `mutate()`  
-* Do groupwise operations with `group_by()`
-
-* Connect operations with `%>%`  
-
-* Use `left_join()`, `right_join()`, `full_join()`, or `inner_join()` to join datasets
-* Use `semi_join()` or `anti_join()` to filter datasets against each other
-
-
-
-
-## Joining data
-
-```{r}
-library(nycflights13)
-```
-
-## Your turn
-Read in the toy datasets band and instrument
-
-
-## Types of joins
-
-```{r}
-band %>% left_join(instrument, by = "name")
-band %>% right_join(instrument, by = "name")
-band %>% full_join(instrument, by = "name")
-band %>% inner_join(instrument, by = "name")
-```
-
-## Your turn
-Which airlines had the largest arrival delays? Work in groups to complete the code below. 
-
-```{r}
-flights %>%
-  drop_na(arr_delay) %>%
-     #something!     %>%
-  group_by(   #something!  ) %>%
-     #something!      %>%
-  arrange(  #something! )       
-```
-
-## Your turn
-Read in the toy dataset instrument2
-
-## What if the names don't match?
-
-```{r}
-band %>% left_join(instrument2, by = c("name" = "artist"))
-```
-
-```{r}
-airports %>% left_join(flights, by = c("faa" = "dest"))
-```
-
 
 # Take aways
 

@@ -30,13 +30,63 @@ Run the skim_with() command, and then try skimming babynames again to see how th
 skim(babynames)
 ```
 
+## Your Turn 1
+Run the skim_with() command, and then try skimming `babynames` again to see how the output is different. Look at the examples and try some other variations.
+```{r}
+my_skim(babynames)
+```
+
+## Data types in R
+
+## Your Turn 2
+
+How many dimensions does a vector have?
+
+Just one!
+
+## Your Turn 3
+
+What happens in your Environment when you run this code? A new object appears
+In your RMarkdown document? The vector prints (or, in the Console)
+
+```{r}
+vec <- c(1, 2, 3, 10, 100)
+vec
+```
+
+## Your Turn 4
+
+Which of these are numbers? What are the others? How can you tell?
+1 "1" "one"
+The first is a number, the second two are character strings because of the quotes
+
+## Your Turn 5
+Make a vector that contains the number 1, the letter R, and the logical TRUE.
+
+What class of data is the vector?
+
+
+```{r}
+my_vec <- c(1, "R", TRUE)
+my_vec
+class(my_vec)
+```
+It's a character vector.
+
+## Your Turn 6
+
+Another way to see the class of an object is in the Environment pane. Does the Environment agree with what you found using class()?
+
+Yes
+
+
 ## Select
 
 ```{r}
 select(babynames, name, prop)
 ```
 
-## Your Turn 2
+## Your Turn 7
 
 Alter the code to select just the `n` column:
 
@@ -55,7 +105,7 @@ select(babynames, starts_with("n"))
 select(babynames, ends_with("n"))
 ```
 
-## Your Turn 3
+## Your Turn 8
 
 Show:
 
@@ -69,7 +119,7 @@ filter(babynames, name == "Sea")
 filter(babynames, is.na(n))
 ```
 
-## Your Turn 4
+## Your Turn 9
 
 Use Boolean operators to alter the code below to return only the rows that contain:
 
@@ -89,7 +139,7 @@ filter(babynames, name %in% c("Acura", "Lexus", "Yugo"))
 arrange(babynames, n)
 ```
 
-## Your Turn 5
+## Your Turn 10
 
 Arrange babynames by `n`. Add `prop` as a second (tie breaking) variable to arrange on. Can you tell what the smallest value of `n` is?
 
@@ -103,7 +153,7 @@ arrange(babynames, n, prop)
 arrange(babynames, desc(n))
 ```
 
-## Your Turn 6
+## Your Turn 11
 
 Use `desc()` to find the names with the highest prop.
 Then, use `desc()` to find the names with the highest n.
@@ -122,7 +172,7 @@ babynames %>%
   arrange(desc(n))
 ```
 
-## Your Turn 7
+## Your Turn 12
 
 Use `%>%` to write a sequence of functions that: 
 
@@ -137,7 +187,7 @@ babynames %>%
   arrange(desc(n))
 ```
 
-## Your Turn 8
+## Your Turn 13
 
 1. Trim `babynames` to just the rows that contain your `name` and your `sex`  
 2. Trim the result to just the columns that will appear in your graph (not strictly necessary, but useful practice)  
@@ -151,7 +201,7 @@ babynames %>%
     geom_line(mapping = aes(year, prop))
 ```
 
-## Your Turn 9
+## Your Turn 14
 
 Use summarise() to compute three statistics about the data:
 
@@ -166,7 +216,7 @@ babynames %>%
             total = sum(n))
 ```
 
-## Your Turn 10
+## Your Turn 15
 
 Extract the rows where `name == "Khaleesi"`. Then use `summarise()` and a summary functions to find:
 
@@ -208,7 +258,7 @@ pollution %>%
 ```
 
 
-## Your Turn 11
+## Your Turn 16
 
 Use `group_by()`, `summarise()`, and `arrange()` to display the ten most popular names. Compute popularity as the total number of children of a single gender given a name.
 
@@ -219,7 +269,7 @@ babynames %>%
   arrange(desc(total))
 ```
 
-## Your Turn 12
+## Your Turn 17
 
 Use grouping to calculate and then plot the number of children born each year over time.
 
@@ -247,7 +297,7 @@ babynames %>%
   mutate(percent = round(prop*100, 2))
 ```
 
-## Your Turn 13
+## Your Turn 18
 
 Use `min_rank()` and `mutate()` to rank each row in `babynames` from largest `n` to lowest `n`.
 
@@ -256,7 +306,7 @@ babynames %>%
   mutate(rank = min_rank(desc(prop)))
 ```
 
-## Your Turn 14
+## Your Turn 19
 
 Compute each name's rank _within its year and sex_. 
 Then compute the median rank _for each combination of name and sex_, and arrange the results from highest median rank to lowest.
@@ -269,6 +319,8 @@ babynames %>%
   summarise(score = median(rank)) %>% 
   arrange(score)
 ```
+
+## Joining data
 
 ## Flights data
 ```{r}
@@ -303,11 +355,16 @@ instrument2 <- tribble(
 
 ## Mutating joins
 
+## Types of joins
+
 ```{r}
 band %>% left_join(instrument, by = "name")
+band %>% right_join(instrument, by = "name")
+band %>% full_join(instrument, by = "name")
+band %>% inner_join(instrument, by = "name")
 ```
 
-## Your Turn 15
+## Your Turn 20
 
 Which airlines had the largest arrival delays? Complete the code below.
 
@@ -329,7 +386,34 @@ flights %>%
 band %>% left_join(instrument2, by = c("name" = "artist"))
 ```
 
-## Your Turn 16
+```{r}
+airports %>% left_join(flights, by = c("faa" = "dest"))
+```
+
+## Your Turn 21
+
+Find the average delay by destination airport.
+
+```{r}
+flights %>%
+  drop_na(arr_delay) %>%
+  group_by(dest) %>% 
+  summarise(delay = mean(arr_delay)) %>%
+  left_join(airports, by = c("dest" = "faa")) %>%
+  select(name, delay) %>%
+  arrange(desc(delay))
+```
+
+## Filtering joins
+
+
+```{r}
+band %>% semi_join(instrument, by = "name")
+band %>% anti_join(instrument, by = "name")
+```
+
+
+## Your Turn 22
 
 How many airports in `airports` are serviced by flights originating in New York (i.e. flights in our dataset?) Notice that the column to join on is named `faa` in the **airports** data set and `dest` in the **flights** data set.
 
