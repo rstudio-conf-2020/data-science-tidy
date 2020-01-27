@@ -1,11 +1,7 @@
 ---
 title: "R Notebook"
-output: html_notebook
-editor_options: 
-  chunk_output_type: inline
+output: html_document
 ---
-
-<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License. -->
 
 ```{r setup}
 library(tidyverse)
@@ -27,4 +23,6 @@ Add a new chunk by clicking the *Insert* button on the toolbar, then selecting *
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* (Windows) or *Cmd+Shift+K* (Mac) to preview the HTML file). 
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+<!-- This file by Charlotte Wickham is licensed under a Creative Commons Attribution 4.0 International License. -->
 
